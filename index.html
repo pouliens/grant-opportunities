@@ -5,6 +5,56 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Active BGS Funding Opportunities</title>
     <style>
+        :root {
+            /* Color Tokens */
+            --color-primary: #002E40;
+            --color-primary-light: #003d56;
+            --color-accent: #AD9C70;
+            --color-text-primary: #333;
+            --color-text-secondary: #666;
+            --color-background: #fafafa;
+            --color-surface: #ffffff;
+            --color-border: #e5e5e5;
+            --color-warning-bg: #fff3cd;
+            --color-warning-border: #ffeaa7;
+            --color-warning-text: #856404;
+            --color-success-bg: #e8f5e8;
+            --color-success-text: #1b5e20;
+            --color-medium-bg: #fff3e0;
+            --color-medium-text: #e65100;
+            --color-urgent: #d32f2f;
+            
+            /* Spacing Tokens */
+            --spacing-xs: 4px;
+            --spacing-sm: 8px;
+            --spacing-md: 12px;
+            --spacing-lg: 16px;
+            --spacing-xl: 20px;
+            --spacing-2xl: 24px;
+            --spacing-3xl: 30px;
+            --spacing-4xl: 40px;
+            --spacing-5xl: 50px;
+            
+            /* Border Radius Tokens */
+            --radius-none: 0;
+            --radius-sm: 1px;
+            --radius-md: 2px;
+            --radius-lg: 3px;
+            
+            /* Typography Tokens */
+            --font-size-xs: 0.8rem;
+            --font-size-sm: 0.85rem;
+            --font-size-base: 0.95rem;
+            --font-size-lg: 1.1rem;
+            --font-size-xl: 1.3rem;
+            --font-size-2xl: 1.4rem;
+            --font-size-3xl: 2.5rem;
+            
+            /* Shadow Tokens */
+            --shadow-sm: 0 2px 10px rgba(0,46,64,0.08);
+            --shadow-md: 0 4px 15px rgba(0,46,64,0.1);
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -14,89 +64,98 @@
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
-            color: #333;
-            background-color: #fafafa;
+            color: var(--color-text-primary);
+            background-color: var(--color-background);
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 40px 20px;
+            padding: var(--spacing-4xl) var(--spacing-xl);
         }
 
         .header {
             text-align: center;
-            margin-bottom: 50px;
-            padding: 40px 0;
-            background: linear-gradient(135deg, #002E40 0%, #003d56 100%);
-            color: white;
-            border-radius: 8px;
+            margin-bottom: var(--spacing-5xl);
+            padding: var(--spacing-4xl) 0;
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+            color: var(--color-surface);
+            border-radius: var(--radius-lg);
         }
 
         .header h1 {
-            font-size: 2.5rem;
+            font-size: var(--font-size-3xl);
             font-weight: 700;
-            margin-bottom: 12px;
+            margin-bottom: var(--spacing-md);
             letter-spacing: -0.5px;
         }
 
         .header .subtitle {
-            font-size: 1.1rem;
+            font-size: var(--font-size-lg);
             opacity: 0.9;
             font-weight: 300;
         }
 
         .pipeline-value {
-            background: #AD9C70;
-            color: #002E40;
-            padding: 8px 20px;
-            border-radius: 25px;
+            background: var(--color-accent);
+            color: var(--color-primary);
+            padding: var(--spacing-sm) var(--spacing-xl);
+            border-radius: var(--radius-lg);
             font-weight: 600;
-            font-size: 0.95rem;
-            margin-top: 15px;
+            font-size: var(--font-size-base);
+            margin-top: var(--spacing-lg);
             display: inline-block;
         }
 
+        .disclaimer {
+            background: var(--color-warning-bg);
+            border: 1px solid var(--color-warning-border);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-lg);
+            margin-bottom: var(--spacing-3xl);
+            color: var(--color-warning-text);
+        }
+
         .section {
-            background: white;
-            border-radius: 8px;
-            padding: 40px;
-            margin-bottom: 30px;
-            box-shadow: 0 2px 10px rgba(0,46,64,0.08);
-            border-left: 4px solid #002E40;
+            background: var(--color-surface);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-4xl);
+            margin-bottom: var(--spacing-3xl);
+            box-shadow: var(--shadow-sm);
+            border-left: var(--spacing-xs) solid var(--color-primary);
         }
 
         .section-header {
-            background: #002E40;
-            color: white;
-            padding: 20px 30px;
-            margin: -40px -40px 30px -40px;
-            border-radius: 8px 8px 0 0;
+            background: var(--color-primary);
+            color: var(--color-surface);
+            padding: var(--spacing-xl) var(--spacing-3xl);
+            margin: calc(-1 * var(--spacing-4xl)) calc(-1 * var(--spacing-4xl)) var(--spacing-3xl) calc(-1 * var(--spacing-4xl));
+            border-radius: var(--radius-none);
         }
 
         .section-header h2 {
-            font-size: 1.4rem;
+            font-size: var(--font-size-2xl);
             font-weight: 600;
             letter-spacing: -0.3px;
         }
 
         .section-header .timeline {
-            font-size: 0.9rem;
+            font-size: var(--font-size-base);
             opacity: 0.8;
-            margin-top: 5px;
+            margin-top: var(--spacing-xs);
         }
 
         .opportunity {
-            border: 1px solid #e5e5e5;
-            border-radius: 6px;
-            padding: 30px;
-            margin-bottom: 25px;
-            background: #fafafa;
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-3xl);
+            margin-bottom: var(--spacing-2xl);
+            background: var(--color-background);
             transition: all 0.3s ease;
         }
 
         .opportunity:hover {
-            box-shadow: 0 4px 15px rgba(0,46,64,0.1);
+            box-shadow: var(--shadow-md);
             transform: translateY(-2px);
         }
 
@@ -105,116 +164,111 @@
         }
 
         .opportunity-title {
-            color: #002E40;
-            font-size: 1.3rem;
+            color: var(--color-primary);
+            font-size: var(--font-size-xl);
             font-weight: 600;
-            margin-bottom: 20px;
-            border-bottom: 2px solid #AD9C70;
-            padding-bottom: 8px;
+            margin-bottom: var(--spacing-xl);
+            border-bottom: 2px solid var(--color-accent);
+            padding-bottom: var(--spacing-sm);
         }
 
         .opportunity-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-            margin-bottom: 20px;
+            gap: var(--spacing-xl);
+            margin-bottom: var(--spacing-xl);
         }
 
         .detail-item {
-            background: white;
-            padding: 15px;
-            border-radius: 4px;
-            border-left: 3px solid #AD9C70;
+            background: var(--color-surface);
+            padding: var(--spacing-lg);
+            border-radius: var(--radius-md);
+            border-left: 3px solid var(--color-accent);
         }
 
         .detail-label {
             font-weight: 600;
-            color: #002E40;
-            font-size: 0.85rem;
+            color: var(--color-primary);
+            font-size: var(--font-size-sm);
             text-transform: uppercase;
             letter-spacing: 0.5px;
-            margin-bottom: 5px;
+            margin-bottom: var(--spacing-xs);
         }
 
         .detail-value {
-            font-size: 0.95rem;
-            color: #333;
+            font-size: var(--font-size-base);
+            color: var(--color-text-primary);
         }
 
         .probability-high {
-            background: #e8f5e8;
-            color: #1b5e20;
-            padding: 4px 12px;
-            border-radius: 15px;
-            font-size: 0.8rem;
+            background: var(--color-success-bg);
+            color: var(--color-success-text);
+            padding: var(--spacing-xs) var(--spacing-md);
+            border-radius: var(--radius-md);
+            font-size: var(--font-size-xs);
             font-weight: 600;
         }
 
         .probability-medium {
-            background: #fff3e0;
-            color: #e65100;
-            padding: 4px 12px;
-            border-radius: 15px;
-            font-size: 0.8rem;
+            background: var(--color-medium-bg);
+            color: var(--color-medium-text);
+            padding: var(--spacing-xs) var(--spacing-md);
+            border-radius: var(--radius-md);
+            font-size: var(--font-size-xs);
             font-weight: 600;
         }
 
         .deadline-urgent {
-            background: #ffebee;
-            color: #c62828;
-            padding: 6px 12px;
-            border-radius: 4px;
+            color: var(--color-urgent);
             font-weight: 600;
-            font-size: 0.9rem;
         }
 
         .deadline-normal {
-            color: #666;
-            font-weight: 500;
+            color: var(--color-text-primary);
         }
 
         .summary-stats {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            margin-bottom: 40px;
+            gap: var(--spacing-xl);
+            margin-bottom: var(--spacing-4xl);
         }
 
         .stat-card {
-            background: white;
-            padding: 25px;
-            border-radius: 6px;
+            background: var(--color-surface);
+            padding: var(--spacing-2xl);
+            border-radius: var(--radius-lg);
             text-align: center;
-            box-shadow: 0 2px 8px rgba(0,46,64,0.06);
-            border-top: 3px solid #AD9C70;
+            box-shadow: var(--shadow-sm);
+            border-top: 3px solid var(--color-accent);
         }
 
         .stat-number {
             font-size: 2rem;
             font-weight: 700;
-            color: #002E40;
-            margin-bottom: 5px;
+            color: var(--color-primary);
+            margin-bottom: var(--spacing-xs);
         }
 
         .stat-label {
-            font-size: 0.9rem;
-            color: #666;
+            font-size: var(--font-size-base);
+            color: var(--color-text-secondary);
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
 
         .action-section {
-            background: linear-gradient(135deg, #002E40 0%, #003d56 100%);
-            color: white;
-            border-radius: 8px;
-            padding: 40px;
-            margin-top: 40px;
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+            color: var(--color-surface);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-4xl);
+            margin-top: var(--spacing-4xl);
         }
 
         .action-section h2 {
             font-size: 1.5rem;
-            margin-bottom: 25px;
-            color: white;
+            margin-bottom: var(--spacing-2xl);
+            color: var(--color-surface);
         }
 
         .action-list {
@@ -223,40 +277,40 @@
 
         .action-list li {
             background: rgba(255,255,255,0.1);
-            padding: 15px 20px;
-            margin-bottom: 10px;
-            border-radius: 4px;
-            border-left: 4px solid #AD9C70;
+            padding: var(--spacing-lg) var(--spacing-xl);
+            margin-bottom: var(--spacing-sm);
+            border-radius: var(--radius-md);
+            border-left: var(--spacing-xs) solid var(--color-accent);
         }
 
         .action-priority {
-            background: #AD9C70;
-            color: #002E40;
-            padding: 3px 8px;
-            border-radius: 3px;
+            background: var(--color-accent);
+            color: var(--color-primary);
+            padding: 3px var(--spacing-sm);
+            border-radius: var(--radius-sm);
             font-size: 0.75rem;
             font-weight: 600;
-            margin-right: 10px;
+            margin-right: var(--spacing-sm);
         }
 
         .advantages-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin-top: 25px;
+            gap: var(--spacing-xl);
+            margin-top: var(--spacing-2xl);
         }
 
         .advantage-item {
             background: rgba(255,255,255,0.1);
-            padding: 20px;
-            border-radius: 6px;
-            border-left: 4px solid #AD9C70;
+            padding: var(--spacing-xl);
+            border-radius: var(--radius-lg);
+            border-left: var(--spacing-xs) solid var(--color-accent);
         }
 
         .advantage-title {
             font-weight: 600;
-            margin-bottom: 8px;
-            color: #AD9C70;
+            margin-bottom: var(--spacing-sm);
+            color: var(--color-accent);
         }
 
         @media (max-width: 768px) {
@@ -291,7 +345,7 @@
             <div class="pipeline-value">Total Pipeline Value: £2.5+ Billion</div>
         </div>
 
-        <div style="background: #fff3cd; border: 1px solid #ffeaa7; border-radius: 6px; padding: 15px; margin-bottom: 30px; color: #856404;">
+        <div class="disclaimer">
             <strong>⚠️ AI-Generated Summary:</strong> This funding opportunities summary was created using Claude AI. All information, deadlines, funding amounts, and application details should be independently verified before taking any action. Please confirm current status and requirements directly with the respective funding bodies and official sources.
         </div>
 
